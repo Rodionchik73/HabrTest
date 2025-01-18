@@ -40,15 +40,15 @@ public class MainPageTest {
     public void logInCaptchaTest() {
         WebElement searchButton = driver.findElement(By.xpath("//a/button"));
         searchButton.click();
-        List <WebElement> searchChangelog = driver.findElements(By.cssSelector("#recaptcha-anchor-label"));
-        assertFalse(searchChangelog.isEmpty(), "На странице логирования нет проверки Captcha");
+        List <WebElement> ReCaptchaCheckBox = driver.findElements(By.cssSelector(".recaptcha-checkbox-border"));
+        assertFalse(ReCaptchaCheckBox.isEmpty(), "На странице логирования нет проверки Captcha");
     }
     @Test
     public void forgotPassword() {
         WebElement searchButton = driver.findElement(By.xpath("//a/button"));
         searchButton.click();
-        List <WebElement> searchChangelog = driver.findElements(By.xpath("//a[contains(text(), 'Забыли пароль')]"));
-        assertFalse(searchChangelog.isEmpty(), "На странице логирования нет кнопки Забыли пароль");
+        List <WebElement> searchForgotPassword = driver.findElements(By.xpath("//a[contains(text(), 'Забыли пароль')]"));
+        assertFalse(searchForgotPassword.isEmpty(), "На странице логирования нет кнопки Забыли пароль");
     }
     @Test
     public void searchComments() {

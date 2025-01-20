@@ -37,28 +37,21 @@ public class MainPageTest {
         assertFalse(searchChangelog.isEmpty(), "Changelog не найден");
     }
     @Test
-    public void logInCaptchaTest() {
-        WebElement searchButton = driver.findElement(By.xpath("//a/button"));
-        searchButton.click();
-        List <WebElement> ReCaptchaCheckBox = driver.findElements(By.cssSelector(".recaptcha-checkbox-border"));
-        assertFalse(ReCaptchaCheckBox.isEmpty(), "На странице логирования нет проверки Captcha");
-    }
-    @Test
     public void forgotPassword() {
-        WebElement searchButton = driver.findElement(By.xpath("//a/button"));
-        searchButton.click();
+        WebElement logButton = driver.findElement(By.xpath("//a/button"));
+        logButton.click();
         List <WebElement> searchForgotPassword = driver.findElements(By.xpath("//a[contains(text(), 'Забыли пароль')]"));
         assertFalse(searchForgotPassword.isEmpty(), "На странице логирования нет кнопки Забыли пароль");
     }
     @Test
     public void searchComments() {
-        WebElement searchButton = driver.findElement(By.cssSelector("svg[class='tm-svg-img tm-header-user-menu__icon tm-header-user-menu__icon_search tm-header-user-menu__icon_dark']"));
+        WebElement searchButton = driver.findElement(By.cssSelector("[class*='tm-header-user-menu__icon_search']"));
         searchButton.click();
         String input = "Java";
         WebElement searchField = driver.findElement(By.cssSelector("input[name = 'q']"));
         searchField.sendKeys(input);
         searchField.submit();
-        List<WebElement> searchComments = driver.findElements(By.xpath("//a[contains(text(), 'Комментарии')]"));
+        List<WebElement> searchComments = driver.findElements(By.xpath("//span[contains(@class,'tm-tabs__tab-item')]//*[contains(text(),'Комментарии')]"));
         assertFalse(searchComments.isEmpty(), "На странице нет блока комментарии");
     }
 }

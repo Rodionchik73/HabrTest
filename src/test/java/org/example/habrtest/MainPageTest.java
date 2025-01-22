@@ -36,13 +36,15 @@ public class MainPageTest {
         List<WebElement> searchChangelog = driver.findElements(By.xpath("//a[contains(text(), 'Changelog')]"));
         assertFalse(searchChangelog.isEmpty(), "Changelog не найден");
     }
+
     @Test
     public void forgotPassword() {
         WebElement logButton = driver.findElement(By.xpath("//a/button"));
         logButton.click();
-        List <WebElement> searchForgotPassword = driver.findElements(By.xpath("//a[contains(text(), 'Забыли пароль')]"));
+        List<WebElement> searchForgotPassword = driver.findElements(By.xpath("//a[contains(text(), 'Забыли пароль')]"));
         assertFalse(searchForgotPassword.isEmpty(), "На странице логирования нет кнопки Забыли пароль");
     }
+
     @Test
     public void searchComments() {
         WebElement searchButton = driver.findElement(By.cssSelector("[class*='tm-header-user-menu__icon_search']"));
